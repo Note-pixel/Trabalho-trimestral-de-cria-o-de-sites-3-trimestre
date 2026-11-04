@@ -1,4 +1,3 @@
-/* UNOA - cabeçalho, mega menu, dropdown da conta e rodapé (injetados em #cabecalho e #rodape) */
 (function () {
   var u = UNOA.url, I = UNOA.icone;
   var nav = [['Tecnologia', 'categoria.html?c=tecnologia', true], ['Casa e Organização', 'categoria.html?c=casa'], ['Moda e Acessórios', 'categoria.html?c=moda'],

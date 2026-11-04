@@ -1,4 +1,3 @@
-/* UNOA - catálogo único para busca, categoria, ofertas e presentes (modo vem de <body data-modo>) */
 document.addEventListener('DOMContentLoaded', function () {
   var modo = document.body.dataset.modo, qs = new URLSearchParams(location.search);
   var norm = function (s) { return (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); };

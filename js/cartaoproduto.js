@@ -1,4 +1,3 @@
-/* UNOA - card de produto reutilizável */
 UNOA.cartaoProduto = function (p) {
   var fav = UNOA.estado.favoritos().indexOf(p.id) >= 0;
   var desc = p.precoAntigo ? Math.round((1 - p.preco / p.precoAntigo) * 100) : 0;
@@ -13,7 +12,6 @@ UNOA.cartaoProduto = function (p) {
       (desc ? '<s>' + UNOA.moeda(p.precoAntigo) + '</s><span class="tag-desc">-' + desc + '%</span>' : '') + '</div>' +
     '<div class="card__parcela">' + p.parcelas + 'x sem juros</div></article>';
 };
-/* delegação global: botão de favorito em qualquer card */
 document.addEventListener('click', function (e) {
   var b = e.target.closest('[data-fav]'); if (!b) return;
   e.preventDefault();

@@ -1,4 +1,3 @@
-/* UNOA - banco de dados temporário de produtos (cada um com sua própria referência de imagem) */
 UNOA.categorias = [
   { id: 'tecnologia', nome: 'Tecnologia', icone: 'celular', cor: '#E8DDF3' },
   { id: 'casa', nome: 'Casa e Organização', icone: 'casa', cor: '#E6EDE8' },

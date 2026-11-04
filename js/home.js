@@ -1,4 +1,3 @@
-/* UNOA - comportamento da Home */
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('lista-categorias').innerHTML = UNOA.categorias.map(function (c) {
     return '<a class="cat" href="' + UNOA.url('paginas/categoria.html?c=' + c.id) + '"><span class="cat__icone" style="background:' + c.cor + '">' + UNOA.icone(c.icone) + '</span>' + c.nome + '</a>';

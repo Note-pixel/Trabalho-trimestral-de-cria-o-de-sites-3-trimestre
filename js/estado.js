@@ -1,4 +1,3 @@
-/* UNOA - estado do usuário (favoritos e carrinho) guardado no navegador */
 UNOA.estado = (function () {
   function ler(k) { try { return JSON.parse(localStorage.getItem('unoa.' + k)) || []; } catch (e) { return []; } }
   function gravar(k, v) { try { localStorage.setItem('unoa.' + k, JSON.stringify(v)); } catch (e) {} }
