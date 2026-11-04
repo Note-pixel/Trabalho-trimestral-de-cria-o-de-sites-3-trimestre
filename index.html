@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UNOA — Muita variedade, zero complicação</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body data-base="">
+  <div id="cabecalho"></div>
+  <main>
+    <section class="hero"><div class="container hero__grade">
+      <div>
+        <h1>Muita variedade, zero complicação.</h1>
+        <p class="hero__sub">Busque, compare e compre com frete e prazo claros.</p>
+        <form class="hero__busca" id="form-hero" role="search"><span aria-hidden="true">&#128269;</span><input name="q" type="search" placeholder="O que você procura hoje?" aria-label="Buscar produtos"><button class="btn" type="submit">Buscar</button></form>
+        <div class="hero__chips"><button class="chip" data-busca="celular">celular</button><button class="chip" data-busca="fone">fone</button><button class="chip" data-busca="presente">presente</button><button class="chip" data-busca="organizador">organizador</button></div>
+      </div>
+      <div class="hero__colagem">
+        <div class="img-caixa hero__c1"><img data-img="banners.hero-audio" src="#" alt="Fone de ouvido sem fio com estojo"><span class="rotulo-img">ÁUDIO HD</span></div>
+        <div class="img-caixa hero__c2"><img data-img="banners.hero-organizador" src="#" alt="Organizador de gavetas em madeira"></div>
+        <div class="img-caixa hero__c3"><img data-img="banners.hero-ceramica" src="#" alt="Caneca de cerâmica artesanal"><span class="rotulo-img">Cerâmica artesanal</span></div>
+      </div>
+    </div></section>
+
+    <section class="secao"><div class="container"><div class="banner-presentes">
+      <div><small>SEMANA DOS PRESENTES</small><h2>Ideias para todas as ocasiões</h2><p>Escolha por ocasião e faixa de preço.</p><a class="btn" href="paginas/presentes.html">Ver ideias</a></div>
+      <div class="img-caixa"><img data-img="banners.presentes" src="#" alt="Caixas de presente embrulhadas com laço lilás"><span class="rotulo-img">Curadoria Especial</span></div>
+    </div></div></section>
+
+    <div class="faixa-cupom"><div class="container faixa-cupom__linha"><span>Primeira compra? Use o cupom <b>UNOA10</b> e ganhe R$ 10 de desconto.</span><button class="btn btn--contorno" id="copiar-cupom" type="button">Copiar cupom</button></div></div>
+
+    <section class="secao"><div class="container">
+      <div class="secao__topo"><h2 class="secao__titulo">Categorias</h2><a class="link-sublinhado" href="paginas/busca.html">Ver todas</a></div>
+      <div class="categorias" id="lista-categorias"></div>
+      <div class="duplo">
+        <div class="destaque destaque--bege"><div class="destaque__txt"><h3>Organize cada cantinho</h3><p>Soluções funcionais para o dia a dia.</p><a class="link-sublinhado" href="paginas/categoria.html?c=casa">Ver</a></div><div class="img-caixa"><img data-img="banners.organize-cada-cantinho" src="#" alt="Prateleira de madeira com cestos organizadores"></div></div>
+        <div class="destaque destaque--lilas"><div class="destaque__txt"><h3>Fones e acessórios</h3><p>Tecnologia com estética limpa e sem fio.</p><a class="link-sublinhado" href="paginas/busca.html?q=fone">Ver</a></div><div class="img-caixa"><img data-img="banners.fones-e-acessorios" src="#" alt="Fone de ouvido bege sobre mesa"></div></div>
+      </div>
+    </div></section>
+
+    <section class="secao secao--bege"><div class="container">
+      <div class="secao__topo"><h2 class="secao__titulo">Ofertas da semana</h2><a class="link-sublinhado" href="paginas/ofertas.html">Ver todas</a></div>
+      <div class="grade-produtos" id="grade-ofertas"></div>
+    </div></section>
+
+    <section class="secao"><div class="container">
+      <div class="secao__topo"><h2 class="secao__titulo">Mais procurados</h2><a class="link-sublinhado" href="paginas/busca.html">Ver todas</a></div>
+      <div class="grade-produtos" id="grade-procurados"></div>
+    </div></section>
+
+    <section class="container" style="padding-bottom:56px"><div class="guia">
+      <div><small>PRESENTES</small><h2>Não sabe o que dar de presente?</h2><p>Escolha por ocasião e faixa de preço.</p></div>
+      <div class="guia__linhas">
+        <div class="guia__linha">Ocasião: <span class="chip">Aniversário</span><span class="chip">Amigo secreto</span><span class="chip">Agradecimento</span></div>
+        <div class="guia__linha">Preço: <span class="chip">Até R$ 50</span><span class="chip">Até R$ 100</span><span class="chip">Até R$ 200</span></div>
+      </div>
+      <a class="btn" href="paginas/guia-presentes.html">Ver ideias</a>
+    </div></section>
+
+    <section class="confianca"><div class="container confianca__grade" id="confianca"></div></section>
+  </main>
+  <div id="rodape"></div>
+
+  <script src="js/dados/imagens.js"></script>
+  <script src="js/dados/produtos.js"></script>
+  <script src="js/dados/estado.js"></script>
+  <script src="js/componentes/icones.js"></script>
+  <script src="js/componentes/cartao-produto.js"></script>
+  <script src="js/componentes/layout.js"></script>
+  <script src="js/paginas/home.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('confianca').innerHTML = [['escudo','Compra segura','Seus dados e pagamentos protegidos'],['caminhao','Frete e prazo claros','Sem surpresas no momento do checkout'],['troca','Troca fácil','Processo simples e sem dor de cabeça em 7 dias']].map(function (c) {
+        return '<div class="conf">' + UNOA.icone(c[0]) + '<div><b>' + c[1] + '</b><span>' + c[2] + '</span></div></div>';
+      }).join('');
+    });
+  </script>
+</body>
+</html>

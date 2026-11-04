@@ -1,0 +1,65 @@
+/* UNOA - componentes compartilhados: faixa, header, menus, cards, rodapé */
+.faixa-topo{background:var(--roxo-escuro);color:#fff;text-align:center;font-size:12px;font-weight:500;padding:8px 16px}
+.header{background:#fff;border-bottom:1px solid var(--borda);position:relative;z-index:30}
+.header__linha{display:flex;align-items:center;gap:40px;height:72px}
+.logo{font-size:24px;font-weight:800;letter-spacing:.14em}
+.busca-topo{flex:1;display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border:1px solid var(--roxo-escuro);border-radius:var(--raio-sm);background:#fff}
+.busca-topo input{flex:1;border:0;outline:0;background:transparent;font-size:13px}
+.acoes{display:flex;gap:26px;align-items:center}
+.acao{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:500;background:none;border:0;padding:0}
+.acao svg{width:18px;height:18px}
+.acao__badge{position:absolute;top:-6px;right:-4px;min-width:14px;height:14px;border-radius:7px;background:var(--desconto);color:var(--roxo-escuro);font-size:9px;font-weight:700;display:grid;place-items:center}
+.nav{border-top:1px solid var(--borda)}
+.nav__linha{display:flex;align-items:center;justify-content:space-between;height:46px}
+.nav__lista{display:flex;gap:28px}
+.nav__item>a,.nav__item>button{background:none;border:0;padding:12px 0;font-size:13px;font-weight:500;display:block}
+.nav__item>a:hover,.nav__item>button:hover,.nav__item>button[aria-expanded="true"]{text-decoration:underline;text-underline-offset:6px}
+.nav__presentes{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px}
+.nav__presentes svg{width:15px;height:15px}
+.mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--borda);box-shadow:0 12px 24px rgba(45,36,56,.08);display:none}
+.mega.aberto{display:block}
+.mega__grade{display:grid;grid-template-columns:220px 1fr 340px;gap:32px;padding:28px 32px}
+.mega h3{font-size:14px;margin-bottom:12px}
+.mega__links li{padding:7px 0;font-size:13px}
+.mega__links a:hover{text-decoration:underline}
+.mega__rotulo{font-size:11px;color:var(--texto-suave);font-weight:600;margin-bottom:10px}
+.mega__pop{display:flex;gap:10px;align-items:center;padding:6px 0;font-size:12px;font-weight:600}
+.mega__pop .img-caixa{width:44px;height:44px;border-radius:8px;flex:none}
+.mega__destaque{background:var(--lilas);border-radius:var(--raio);padding:22px;display:grid;grid-template-columns:1fr 120px;gap:12px;align-items:center}
+.mega__destaque p{font-size:12px;color:var(--texto-suave);margin:6px 0 14px}
+.mega__destaque .img-caixa{height:120px}
+.dropdown{position:absolute;right:32px;top:calc(100% + 8px);width:280px;background:#fff;border:1px solid var(--borda);border-radius:var(--raio);box-shadow:0 12px 28px rgba(45,36,56,.16);padding:16px;display:none;z-index:40}
+.dropdown.aberto{display:block}
+.dropdown__titulo{font-weight:700;font-size:13px}
+.dropdown p{font-size:12px;color:var(--texto-suave);margin:2px 0 12px}
+.dropdown .btn{margin-bottom:8px}
+.dropdown__menu{margin-top:10px}
+.dropdown__menu a{display:flex;gap:10px;align-items:center;padding:8px 0;font-size:13px}
+.dropdown__menu svg{width:15px;height:15px}
+.dropdown__cupom{background:var(--lilas-claro);border-radius:var(--raio-sm);padding:10px 12px;font-size:12px;margin-top:8px}
+.grade-produtos{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--borda);border-radius:var(--raio);padding:12px;display:flex;flex-direction:column;gap:10px}
+.card__img{aspect-ratio:1/1}
+.card__fav{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;border:0;background:#fff;display:grid;place-items:center;box-shadow:var(--sombra)}
+.card__fav svg{width:15px;height:15px}
+.card__fav[aria-pressed="true"] svg{fill:var(--roxo-medio);stroke:var(--roxo-medio)}
+.card__nome{font-weight:600;font-size:13px}
+.card__nota{font-size:11px;color:var(--texto-suave)}
+.card__nota b{color:var(--roxo-medio)}
+.card__preco{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card__preco strong{font-size:16px;font-weight:800}
+.card__preco s{font-size:11px;color:var(--texto-suave)}
+.tag-desc{background:var(--desconto);color:var(--roxo-escuro);font-size:10px;font-weight:700;border-radius:var(--raio-pill);padding:2px 8px}
+.card__parcela{font-size:11px;color:var(--texto-suave)}
+.rodape{background:var(--roxo-escuro);color:#fff;padding:48px 0 24px}
+.rodape__grade{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.rodape .logo{font-size:20px}
+.rodape p{font-size:12px;opacity:.8;margin-top:8px}
+.rodape h4{font-size:13px;margin:0 0 12px}
+.rodape li{font-size:12px;opacity:.85;padding:4px 0}
+.rodape a:hover{text-decoration:underline}
+.rodape__base{display:flex;justify-content:space-between;align-items:center;margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);font-size:11px;gap:12px;flex-wrap:wrap}
+.rodape__pag{display:flex;gap:8px}
+.rodape__pag span{border:1px solid rgba(255,255,255,.6);border-radius:var(--raio-pill);padding:3px 12px;font-weight:600}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--roxo-escuro);color:#fff;padding:10px 18px;border-radius:var(--raio-sm);font-size:13px;z-index:99}
+@media (max-width:960px){.grade-produtos{grid-template-columns:repeat(2,1fr)}.rodape__grade{grid-template-columns:1fr 1fr}.nav__lista{overflow-x:auto;gap:18px}.header__linha{gap:16px}.mega__grade{grid-template-columns:1fr}.acao span{display:none}}
