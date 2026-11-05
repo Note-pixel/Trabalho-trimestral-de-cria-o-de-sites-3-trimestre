@@ -1,0 +1,50 @@
+.linha-item{display:grid;grid-template-columns:90px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--borda)}
+.linha-item:last-child{border:0}
+.linha-item .img-caixa{width:90px;height:90px}
+.acoes-item{display:flex;gap:14px;align-items:center;margin-top:8px;font-size:12px}
+.acoes-item button{background:none;border:0;text-decoration:underline;font-size:12px;padding:0}
+.resumo{background:var(--lilas);border-radius:var(--raio);padding:20px;display:flex;flex-direction:column;gap:10px;font-size:13px}
+.resumo .lin{display:flex;justify-content:space-between;gap:8px}
+.resumo .total{font-size:20px;font-weight:800;border-top:1px solid rgba(45,36,56,.15);padding-top:10px}
+.passos{display:flex;gap:10px;font-size:12px;color:var(--texto-suave);margin:14px 0}
+.passos b{color:var(--texto);text-decoration:underline;text-underline-offset:4px}
+.campo{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.campo label{font-size:12px;font-weight:600}
+.campo input,.campo select{height:42px;border:1px solid var(--borda);border-radius:var(--raio-sm);padding:0 12px;background:#fff}
+.campo input[aria-invalid="true"]{border-color:#C0392B}
+.erro{color:#C0392B;font-size:12px}
+.msg-erro{background:#FBE9E5;color:#8E2A1E;border-radius:var(--raio-sm);padding:10px 12px;font-size:12px;margin-bottom:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opcao{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--borda);border-radius:var(--raio);padding:14px;margin-bottom:10px;background:#fff;cursor:pointer}
+.opcao:has(input:checked){background:var(--lilas-claro);border-color:var(--roxo-medio)}
+.opcao small{display:block;color:var(--texto-suave)}
+.opcao span{flex:1}
+.cartao-campos{margin:0 0 12px;padding:14px;background:var(--lilas-claro);border-radius:var(--raio)}
+.forca{display:flex;gap:4px;margin-top:4px}.forca i{flex:1;height:4px;border-radius:2px;background:var(--borda)}.forca i.on{background:var(--roxo-medio)}
+.centro{max-width:440px;margin:32px auto}
+.centro .painel{margin-top:16px}
+.tempo{list-style:none;padding:0;margin:12px 0}
+.tempo li{display:flex;gap:12px;padding:10px 0;font-size:13px;color:var(--texto-suave)}
+.tempo li i{width:22px;height:22px;border-radius:50%;border:2px solid var(--borda);flex:none;display:grid;place-items:center;font-size:11px;font-style:normal}
+.tempo li.ok{color:var(--texto)}.tempo li.ok i{background:var(--roxo-escuro);border-color:var(--roxo-escuro);color:#fff}
+.tempo li.atual i{border-color:var(--roxo-medio);background:var(--lilas)}
+.selo{background:var(--lilas);border-radius:var(--raio-pill);padding:2px 10px;font-size:11px;font-weight:700}
+.com-lateral{display:grid;grid-template-columns:230px 1fr;gap:24px;margin-top:16px;align-items:start}
+.lateral{background:#fff;border:1px solid var(--borda);border-radius:var(--raio);padding:14px;display:flex;flex-direction:column;gap:2px}
+.lateral a{padding:10px;border-radius:8px;font-size:13px}
+.lateral a:hover{background:var(--lilas-claro)}
+.lateral a[aria-current="page"]{background:var(--lilas);font-weight:700}
+.lateral__user{display:flex;gap:10px;align-items:center;padding:6px 10px 14px;border-bottom:1px solid var(--borda);margin-bottom:8px}
+.lateral__user .avatar{width:36px;height:36px;font-size:15px}
+.lateral__user small{display:block;color:var(--texto-suave);font-size:11px}
+.duas-colunas{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px}
+.lista-check{margin:12px 0;display:flex;flex-direction:column;gap:8px;font-size:13px}
+.ideias-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:16px 0 32px}
+.ideia{background:#fff;border:1px solid var(--borda);border-radius:var(--raio);padding:18px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.ideia:hover{border-color:var(--roxo-medio)}
+.beneficios{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.ajuda-lista details{background:#fff;border:1px solid var(--borda);border-radius:var(--raio);padding:16px 18px;margin-bottom:10px}
+.ajuda-lista summary{font-weight:700;cursor:pointer}
+.ajuda-lista p{margin-top:10px;color:var(--texto-suave);font-size:13px}
+.rodape-min{display:flex}
+@media (max-width:960px){.com-lateral,.duas-colunas,.beneficios{grid-template-columns:1fr}.ideias-cards{grid-template-columns:repeat(2,1fr)}}

@@ -1,0 +1,55 @@
+/* UNOA - páginas de produto */
+.pg{background:var(--creme);padding-bottom:56px}
+.pg .crumbs{padding-top:18px}
+.pg h1{font-size:28px;font-weight:800;margin:8px 0 6px}
+.prod{display:grid;grid-template-columns:70px 1fr 380px;gap:24px;margin-top:16px;align-items:start}
+.prod__thumbs{display:flex;flex-direction:column;gap:10px}
+.prod__thumbs .img-caixa{width:70px;height:70px;border-radius:8px;border:2px solid transparent;padding:0;cursor:pointer}
+.prod__thumbs .img-caixa[aria-current="true"]{border-color:var(--roxo-escuro)}
+.prod__principal{aspect-ratio:1/1;border-radius:var(--raio-lg)}
+.painel{background:#fff;border:1px solid var(--borda);border-radius:var(--raio);padding:20px;display:flex;flex-direction:column;gap:14px}
+.painel h2{font-size:20px;font-weight:700}
+.preco-grande{font-size:28px;font-weight:800}
+.preco-grande s{font-size:12px;color:var(--texto-suave);font-weight:500;margin-left:6px}
+.aviso{background:var(--lilas-claro);border-radius:var(--raio-sm);padding:10px 12px;font-size:12px}
+.cores{display:flex;gap:8px}
+.cores button{width:24px;height:24px;border-radius:50%;border:2px solid var(--borda)}
+.cores button[aria-pressed="true"]{border-color:var(--roxo-escuro)}
+.qtd{display:inline-flex;align-items:center;border:1px solid var(--borda);border-radius:var(--raio-sm);width:max-content}
+.qtd button{width:32px;height:32px;border:0;background:none;font-size:16px}
+.qtd output{min-width:28px;text-align:center}
+.cep{display:flex;gap:8px}
+.cep input{flex:1;height:36px;border:1px solid var(--borda);border-radius:var(--raio-sm);padding:0 10px}
+.abas{display:flex;gap:24px;border-bottom:1px solid var(--borda);margin:32px 0 20px}
+.abas a{padding:10px 0;font-size:13px;font-weight:600;color:var(--texto-suave)}
+.abas a[aria-current="page"]{color:var(--texto);border-bottom:2px solid var(--roxo-escuro)}
+.tabela{width:100%;border-collapse:collapse;font-size:13px}
+.tabela th,.tabela td{text-align:left;padding:12px;border-bottom:1px solid var(--borda)}
+.tabela tr:nth-child(odd) td,.tabela tr:nth-child(odd) th{background:var(--lilas-claro)}
+.duas{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start}
+.resumo-nota{display:grid;grid-template-columns:200px 1fr;gap:24px}
+.nota-grande{font-size:44px;font-weight:800}
+.barra-nota{display:grid;grid-template-columns:24px 1fr 36px;gap:8px;align-items:center;font-size:11px;margin:4px 0}
+.barra-nota i{height:6px;border-radius:3px;background:var(--lilas);position:relative;overflow:hidden}
+.barra-nota i b{position:absolute;inset:0 auto 0 0;background:var(--roxo-medio)}
+.avaliacao{background:#fff;border:1px solid var(--borda);border-radius:var(--raio);padding:16px;margin-bottom:12px;font-size:13px}
+.avaliacao b{display:block;margin:4px 0}
+.estrelas{color:var(--roxo-medio);letter-spacing:2px}
+.form label{display:block;font-size:12px;font-weight:600;margin:14px 0 6px}
+.form input[type=text],.form textarea{width:100%;border:1px solid var(--borda);border-radius:var(--raio-sm);padding:10px;background:#fff}
+.form textarea{min-height:120px;resize:vertical}
+.estrelas-input button{background:none;border:0;font-size:30px;color:var(--borda)}
+.estrelas-input button.on{color:var(--roxo-medio)}
+.check{width:60px;height:60px;border-radius:50%;background:var(--lilas);display:grid;place-items:center;font-size:26px;margin-bottom:12px}
+.comp{overflow-x:auto;background:#fff;border:1px solid var(--borda);border-radius:var(--raio)}
+.comp .tabela th{width:140px;color:var(--texto-suave);font-size:12px}
+@media (max-width:960px){.prod,.duas,.resumo-nota{grid-template-columns:1fr}.prod__thumbs{flex-direction:row;order:2}}
+.chips-linha{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.chip{cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--roxo-escuro);color:#fff;border-color:var(--roxo-escuro)}
+#btn-fav .on,#btn-fav[aria-pressed="true"] .off{display:none}
+#btn-fav[aria-pressed="true"] .on{display:inline}
+.prod__thumbs .img-caixa{cursor:pointer;padding:0}
+.cores button{cursor:pointer}
+.util{margin-top:8px}.util button{background:none;border:1px solid var(--borda);border-radius:var(--raio-pill);padding:3px 12px;font-size:11px}
+#comentarios{margin-top:32px}

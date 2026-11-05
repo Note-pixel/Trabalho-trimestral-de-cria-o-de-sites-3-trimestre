@@ -22,3 +22,12 @@ UNOA.maisProcurados = ['luminaria-mesa', 'mouse-sem-fio', 'fone-esportivo', 'est
 UNOA.produto = function (id) { return UNOA.produtos.find(function (p) { return p.id === id; }); };
 UNOA.moeda = function (v) { return 'R$ ' + v.toFixed(2).replace('.', ','); };
 UNOA.cupom = { codigo: 'UNOA10', descricao: 'R$ 10 de desconto na primeira compra', valor: 10 };
+
+/* Variações de cor por categoria: [nome, hex] */
+UNOA.produtos.forEach(function (p) {
+  p.cores = p.cores || ({
+    tecnologia: [['Preto', '#2D2438'], ['Branco', '#F4F1EC'], ['Bege', '#D9CFC2']],
+    casa: [['Natural', '#D9CFC2'], ['Branco', '#F4F1EC'], ['Cinza', '#9A939F']],
+    moda: [['Bege', '#D9CFC2'], ['Lilás', '#C9B6E4'], ['Preto', '#2D2438']]
+  }[p.categoria] || [['Único', '#D9CFC2']]);
+});
