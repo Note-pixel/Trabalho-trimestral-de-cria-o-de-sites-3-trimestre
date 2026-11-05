@@ -1,4 +1,3 @@
-/* UNOA - conta: acesse sua conta, minha conta, endereços (modo em <body data-modo>) */
 document.addEventListener('DOMContentLoaded', function () {
   var modo = document.body.dataset.modo, qs = new URLSearchParams(location.search), U = UNOA.url, raiz = document.getElementById('pg'), ck = qs.get('checkout') === '1';
   var $ = function (s) { return document.getElementById(s); };
