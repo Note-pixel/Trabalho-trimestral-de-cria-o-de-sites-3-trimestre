@@ -1,22 +1,47 @@
 window.UNOA = window.UNOA || {};
+
 UNOA.imagens = {
   produtos: {
-    'fone-sem-fio': '#', 'carregador-portatil': '#', 'organizador-gavetas': '#', 'caneca-ceramica': '#',
-    'luminaria-mesa': '#', 'mouse-sem-fio': '#', 'fone-esportivo': '#', 'estojo-fones': '#',
-    'fone-cancelamento': '#', 'fone-com-fio': '#'
+    'fone-sem-fio': 'produtos/fone-sem-fio.jpg',
+    'carregador-portatil': 'produtos/carregador-portatil.jpg',
+    'organizador-gavetas': 'produtos/organizador-gavetas.jpg',
+    'caneca-ceramica': 'produtos/caneca-ceramica.jpg',
+    'luminaria-mesa': 'produtos/luminaria-mesa.jpg',
+    'mouse-sem-fio': 'produtos/mouse-sem-fio.jpg',
+    'fone-esportivo': 'produtos/fone-esportivo.jpg',
+    'estojo-fones': 'produtos/estojo-fones.jpg',
+    'fone-cancelamento': 'produtos/fone-cancelamento.jpg',
+    'fone-com-fio': 'produtos/fone-com-fio.jpg'
   },
+
   banners: {
-    'hero-audio': '#', 'hero-organizador': '#', 'hero-ceramica': '#',
-    'presentes': '#', 'organize-cada-cantinho': '#', 'fones-e-acessorios': '#',
-    'menu-tecnologia': '#'
+    'hero-audio': 'banners/hero-audio.jpg',
+    'hero-organizador': 'banners/hero-organizador.jpg',
+    'hero-ceramica': 'banners/hero-ceramica.jpg',
+    'presentes': 'banners/presentes.jpg',
+    'organize-cada-cantinho': 'banners/organize-cada-cantinho.jpg',
+    'fones-e-acessorios': 'banners/fones-e-acessorios.jpg',
+    'menu-tecnologia': 'banners/menu-tecnologia.jpg'
   },
+
   categorias: {},
-  identidade: { 'logo-unoa': '#' }
+
+  identidade: {
+    'logo-unoa': 'identidade/logo-unoa.png'
+  }
 };
-UNOA.base = document.currentScript ? '' : '';
+
 UNOA.img = function (grupo, chave) {
-  var v = (UNOA.imagens[grupo] || {})[chave];
-  if (!v || v === '#') return '#';
-  return (document.body.dataset.base || '') + 'imagens/' + v;
+  var arquivo = (UNOA.imagens[grupo] || {})[chave];
+
+  if (!arquivo) return '#';
+
+  return (document.body.dataset.base || '') + 'imagens/' + arquivo;
 };
-UNOA.url = function (caminho) { return (document.body.dataset.base || '') + caminho; };
+
+UNOA.url = function (caminho) {
+  return (document.body.dataset.base || '') + caminho;
+};
+UNOA.imgCor = function (produto, cor) {
+  return UNOA.img.apply(null, produto.imagem.split('.'));
+};

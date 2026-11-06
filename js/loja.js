@@ -3,7 +3,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var modo = document.body.dataset.modo, qs = new URLSearchParams(location.search), U = UNOA.url, M = UNOA.moeda, raiz = document.getElementById('pg');
   var $ = function (s) { return document.getElementById(s); };
   var L = function (k, d) { try { var v = JSON.parse(localStorage.getItem('unoa.' + k)); return v == null ? d : v; } catch (e) { return d; } };
-  var S = function (k, v) { try { localStorage.setItem('unoa.' + k, JSON.stringify(v)); } catch (e) {} UNOA.atualizarContadores(); };
+var S = function (k, v) {
+  try {
+    localStorage.setItem('unoa.' + k, JSON.stringify(v));
+  } catch (e) {}
+
+  if (UNOA.atualizarContadores) {
+    UNOA.atualizarContadores();
+  }
+};
   var img = function (p) { return UNOA.img.apply(null, p.imagem.split('.')); };
   var meses = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
   var dataEm = function (dias) { var d = new Date(); d.setDate(d.getDate() + dias); return d.getDate() + ' de ' + meses[d.getMonth()]; };

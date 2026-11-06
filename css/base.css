@@ -29,7 +29,7 @@ h1,h2,h3,p{margin:0}
 .secao--bege{background:var(--bege)}
 .secao__topo{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px}
 .secao__titulo{font-size:22px;font-weight:700;letter-spacing:-.01em}
-/* Imagens: o contêiner mantém proporção e cor mesmo com src="#" */
+
 .img-caixa{position:relative;overflow:hidden;background:var(--bege);border-radius:var(--raio)}
 .img-caixa>img{width:100%;height:100%;object-fit:cover}
 .img-caixa--contain>img{object-fit:contain}
