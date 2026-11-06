@@ -1,4 +1,3 @@
-/* UNOA - páginas de produto (modo em <body data-modo>) */
 document.addEventListener('DOMContentLoaded', function () {
   var modo = document.body.dataset.modo, qs = new URLSearchParams(location.search);
   var p = UNOA.produto(qs.get('id')) || UNOA.produto('fone-sem-fio'), id = p.id, U = UNOA.url, M = UNOA.moeda, raiz = document.getElementById('pg');
@@ -33,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return '<div class="container">' + crumbs('Detalhes') + '<div class="prod"><div class="prod__thumbs">' +
       p.cores.map(function (c, i) { return '<button type="button" class="img-caixa" data-cor="' + c[0] + '" aria-current="' + (i === 0) + '" aria-label="Ver cor ' + c[0] + '"><img src="' + UNOA.imgCor(p, c[0]) + '" alt="' + p.nome + ' na cor ' + c[0] + '"></button>'; }).join('') + '</div>' +
       '<a href="' + U('paginas/produto-fotos.html?id=' + id) + '" class="img-caixa prod__principal"><img data-cor-img src="' + UNOA.imgCor(p, cor) + '" alt="' + p.nome + '"></a>' +
-      '<div class="painel"><span class="selo" style="align-self:flex-start">Em estoque</span><h2>' + p.nome + '</h2><a href="#comentarios">' + estrelas(p.nota) + ' <small>' + String(p.nota).replace('.', ',') + ' · ' + p.avaliacoes + ' avaliações</small></a>' +
+      '<div class="painel"><span class="selo" style="align-self:flex-start">Em estoque</span><h2>' + p.nome + '</h2><p>' + p.descricao + '</p><a href="#comentarios">' + estrelas(p.nota) + ' <small>' + String(p.nota).replace('.', ',') + ' · ' + p.avaliacoes + ' avaliações</small></a>' +
       '<div class="preco-grande">' + M(p.preco) + (p.precoAntigo ? '<s>' + M(p.precoAntigo) + '</s>' : '') + '</div><small>' + p.parcelas + 'x de ' + M(p.preco / p.parcelas) + ' sem juros</small>' +
       '<div class="aviso">Use o cupom <b>' + UNOA.cupom.codigo + '</b> e ganhe R$ 10 na primeira compra.</div>' +
       '<div><small>Cor: <b id="cor-nome">' + cor + '</b></small><div class="cores" id="cores">' + p.cores.map(function (c, i) { return '<button type="button" data-cor="' + c[0] + '" style="background:' + c[1] + '" aria-pressed="' + (i === 0) + '" aria-label="' + c[0] + '"></button>'; }).join('') + '</div></div>' +
@@ -51,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
       '<div class="prod__thumbs" style="flex-direction:row;margin-top:16px">' + p.cores.map(function (c) { return '<button type="button" class="img-caixa" style="width:90px;height:90px" data-cor="' + c[0] + '" aria-current="' + (c[0] === cor) + '" aria-label="Cor ' + c[0] + '"><img src="' + UNOA.imgCor(p, c[0]) + '" alt="' + c[0] + '"></button>'; }).join('') + '</div></div>';
   };
   R.descricao = function () {
-    return '<div class="container">' + crumbs('Descrição') + '<h1>Descrição e características</h1>' + abas('produto-descricao') + '<div class="duas"><div class="painel"><h2>Descrição</h2><p>' + p.nome + ' pensado para o dia a dia. Leve, prático e fácil de guardar. As informações abaixo são exemplos do projeto.</p>' +
+    return '<div class="container">' + crumbs('Descrição') + '<h1>Descrição e características</h1>' + abas('produto-descricao') + '<div class="duas"><div class="painel"><h2>Descrição</h2><p>' + p.descricao + '</p>' +
       '<h2>Características</h2><table class="tabela"><tr><th scope="row">Categoria</th><td>' + nomeCategoria + '</td></tr><tr><th scope="row">Cores</th><td>' + p.cores.map(function (c) { return c[0]; }).join(', ') + '</td></tr><tr><th scope="row">Avaliação</th><td>' + String(p.nota).replace('.', ',') + ' (' + p.avaliacoes + ' avaliações)</td></tr><tr><th scope="row">Troca</th><td>Em até 7 dias</td></tr></table>' +
       '<h2>Entrega e devolução</h2><p>Frete e prazo calculados pelo CEP, antes de pagar.<br>Troca em até 7 dias.<br>Compra segura.</p></div>' +
       '<div class="painel">' + caixa(p, '') + '<h2>' + p.nome + '</h2><div class="preco-grande">' + M(p.preco) + '</div><button class="btn" id="add" type="button">Adicionar ao carrinho</button><a class="btn btn--contorno" href="' + U('paginas/produto.html?id=' + id) + '">Voltar ao produto</a></div></div></div>';

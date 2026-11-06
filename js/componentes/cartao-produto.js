@@ -22,6 +22,7 @@ UNOA.cartaoProduto = function (p, opts) {
       '</div>' +
     '</div>' +
     '<h3 class="card__nome"><a href="' + link + '">' + p.nome + '</a></h3>' +
+     '<p class="card__desc">' + p.descricao + '</p>' +
     '<div class="card__nota"><b>★</b> ' + p.nota.toFixed(1).replace('.', ',') + ' (' + p.avaliacoes + ')</div>' +
     '<div class="card__preco"><strong>' + UNOA.moeda(p.preco) + '</strong>' + (desc ? '<s>' + UNOA.moeda(p.precoAntigo) + '</s><span class="tag-desc">-' + desc + '%</span>' : '') + '</div>' +
     '<div class="card__parcela">' + p.parcelas + 'x sem juros</div>' + entrega + cmp + '</article>';

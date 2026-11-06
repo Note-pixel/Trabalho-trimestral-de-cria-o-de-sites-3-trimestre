@@ -1,4 +1,3 @@
-/* UNOA - carrinho, favoritos, checkout, conta e pedidos (modo em <body data-modo>) */
 document.addEventListener('DOMContentLoaded', function () {
   var modo = document.body.dataset.modo, qs = new URLSearchParams(location.search), U = UNOA.url, M = UNOA.moeda, raiz = document.getElementById('pg');
   var $ = function (s) { return document.getElementById(s); };
@@ -94,19 +93,23 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!itens().length) return semItens('Pagamento');
     var p = L('checkout', {}).pagamento || { metodo: 'pix' };
     var op = function (v, t, d) { return '<label class="opcao"><input type="radio" name="m" value="' + v + '"' + (p.metodo === v ? ' checked' : '') + '><span><b>' + t + '</b><small>' + d + '</small></span></label>'; };
-    return topo('Pagamento', passos(2) + '<div class="duas"><form class="painel" id="f" novalidate><h1>Pagamento</h1><small>Escolha como prefere pagar.</small><div id="msg"></div>' + op('pix', 'Pix', 'Aprovação imediata') + op('cartao', 'Cartão de crédito', 'Até 3x sem juros') +
-      '<div class="cartao-campos" id="cartao"><div class="campo"><label for="num">Número do cartão</label><input id="num" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000"><span class="erro" id="e-num"></span></div><div class="campo"><label for="tit">Nome impresso no cartão</label><input id="tit"><span class="erro" id="e-tit"></span></div><div class="grid2"><div class="campo"><label for="val">Validade</label><input id="val" placeholder="MM/AA" maxlength="5"><span class="erro" id="e-val"></span></div><div class="campo"><label for="cvv">CVV</label><input id="cvv" type="password" maxlength="4"><span class="erro" id="e-cvv"></span></div></div><div class="campo"><label for="parc">Parcelas</label><select id="parc">' + [1, 2, 3].map(function (n) { return '<option value="' + n + '">' + n + 'x de ' + M(totais().total / n) + ' sem juros</option>'; }).join('') + '</select></div></div>' +
+    return topo('Pagamento', passos(2) + '<div class="duas"><form class="painel" id="f" novalidate><h1>Pagamento</h1><small>Escolha como prefere pagar.</small><div id="msg"></div>' + op('pix', 'Pix', 'Aprovação imediata') + op('debito', 'Cartão de débito', 'À vista, debitado na hora') + op('cartao', 'Cartão de crédito', 'Até 3x sem juros') +
+      '<div class="cartao-campos" id="cartao"><div class="campo"><label for="num">Número do cartão</label><input id="num" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000"><span class="erro" id="e-num"></span></div><div class="campo"><label for="tit">Nome impresso no cartão</label><input id="tit"><span class="erro" id="e-tit"></span></div><div class="grid2"><div class="campo"><label for="val">Validade</label><input id="val" placeholder="MM/AA" maxlength="5"><span class="erro" id="e-val"></span></div><div class="campo"><label for="cvv">CVV</label><input id="cvv" type="password" maxlength="4"><span class="erro" id="e-cvv"></span></div></div><div class="campo" id="campo-parc"><label for="parc">Parcelas</label><select id="parc">' + [1, 2, 3].map(function (n) { return '<option value="' + n + '">' + n + 'x de ' + M(totais().total / n) + ' sem juros</option>'; }).join('') + '</select></div></div>' +
       op('boleto', 'Boleto bancário', 'Compensação em até 2 dias úteis') + '<div style="display:flex;gap:16px;align-items:center"><button class="btn" type="submit">Continuar</button><a class="link-sublinhado" href="' + U('paginas/entrega.html') + '">Voltar para entrega</a></div></form>' + resumo() + '</div></div>');
   };
   depois.pagamento = function () {
     if (!$('f')) return;
-    var mostrar = function () { $('cartao').hidden = document.querySelector('[name=m]:checked').value !== 'cartao'; };
+    var mostrar = function () {
+      var v = document.querySelector('[name=m]:checked').value;
+      $('cartao').hidden = v !== 'cartao' && v !== 'debito';
+      $('campo-parc').hidden = v !== 'cartao';
+    };
     document.querySelectorAll('[name=m]').forEach(function (r) { r.onchange = mostrar; }); mostrar();
     $('num').oninput = function () { this.value = this.value.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim(); };
     $('val').oninput = function () { var d = this.value.replace(/\D/g, '').slice(0, 4); this.value = d.length > 2 ? d.slice(0, 2) + '/' + d.slice(2) : d; };
     $('f').onsubmit = function (ev) {
       ev.preventDefault(); var m = document.querySelector('[name=m]:checked').value, pg = { metodo: m };
-      if (m === 'cartao') {
+      if (m === 'cartao' || m === 'debito') {
         var erros = {
           num: $('num').value.replace(/\s/g, '').length !== 16 ? 'Confira o número do cartão.' : '',
           tit: !$('tit').value.trim() ? 'Informe o nome impresso.' : '',
@@ -116,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
         Object.keys(erros).forEach(function (k) { $('e-' + k).textContent = erros[k]; $(k).setAttribute('aria-invalid', !!erros[k]); if (erros[k]) ok = false; });
         $('msg').innerHTML = ok ? '' : '<div class="msg-erro" role="alert">Não foi possível processar o pagamento. Confira os dados do cartão ou escolha outra forma de pagar.<br><small>Código do erro: REC-802 · Nenhuma cobrança foi efetuada no seu cartão.</small></div>';
         if (!ok) { $('f').querySelector('.btn').textContent = 'Tentar novamente'; return; }
-        pg.final = $('num').value.replace(/\s/g, '').slice(-4); pg.parcelas = +$('parc').value;
+        pg.final = $('num').value.replace(/\s/g, '').slice(-4); pg.parcelas = m === 'cartao' ? +$('parc').value : 1;
       }
       var c = L('checkout', {}); c.pagamento = pg; S('checkout', c); location.href = U('paginas/revisao.html');
     };
@@ -126,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!itens().length) return semItens('Revisão');
     var c = L('checkout', {}), e = c.entrega, p = c.pagamento, t = totais();
     if (!e || !p) return topo('Revisão', '<h1>Revise seu pedido</h1>' + vazio('Complete a entrega e o pagamento antes.', ['Ir para entrega', 'paginas/entrega.html']) + '</div>');
-    var nome = { pix: 'Pix · ' + M(t.total) + ' à vista', cartao: 'Cartão final ' + p.final + ' · ' + p.parcelas + 'x sem juros', boleto: 'Boleto bancário' }[p.metodo];
+    var nome = { pix: 'Pix · ' + M(t.total) + ' à vista', debito: 'Cartão de débito final ' + p.final + ' · à vista', cartao: 'Cartão de crédito final ' + p.final + ' · ' + p.parcelas + 'x sem juros', boleto: 'Boleto bancário' }[p.metodo];
     return topo('Revisão', passos(3) + '<div class="duas"><div class="painel"><h1>Revise seu pedido</h1><h2>Itens</h2>' + itens().map(function (i) { return '<div class="lin" style="display:flex;justify-content:space-between"><span>' + i.p.nome + ' · ' + i.qtd + ' un.</span><b>' + M(i.p.preco * i.qtd) + '</b></div>'; }).join('') +
       '<h2>Entrega <a class="link-sublinhado" href="' + U('paginas/entrega.html') + '">Alterar</a></h2><p>' + e.nome + '<br>' + e.rua + ', ' + e.num + (e.comp ? ', ' + e.comp : '') + '<br>' + e.cidade + ', ' + e.uf + ' · ' + e.cep + '<br><b>' + envio().n + ' · Chega até ' + dataEm(envio().d) + '</b></p>' +
       '<h2>Pagamento <a class="link-sublinhado" href="' + U('paginas/pagamento.html') + '">Alterar</a></h2><p>' + nome + '</p><button class="btn" id="confirmar" type="button">✓ Confirmar pedido</button></div>' + resumo() + '</div></div>');

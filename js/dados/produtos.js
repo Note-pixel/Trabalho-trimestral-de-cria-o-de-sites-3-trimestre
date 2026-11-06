@@ -68,3 +68,33 @@ UNOA.subcategorias = {
   beleza: [['Skincare', 'creme'], ['Banho', 'sabonete'], ['Acessórios', 'escova'], ['Viagem', 'necessaire']],
   hobbies: [['Jogos', 'jogo'], ['Quebra-cabeças', 'quebra'], ['Arte', 'aquarela'], ['Papelaria', 'caderno']]
 };
+
+UNOA.descricoes = {
+  'suporte-celular': 'Suporte dobrável e ajustável para apoiar o celular na mesa.',
+  'cabo-usb-c': 'Cabo trançado resistente para carregar e transferir dados.',
+  'fone-sem-fio': 'Fone intra-auricular com estojo de carregamento e bateria de longa duração.',
+  'carregador-portatil': 'Power bank compacto com carga rápida para o dia todo.',
+  'mouse-sem-fio': 'Mouse ergonômico sem fio, silencioso e preciso.',
+  'fone-esportivo': 'Fone Bluetooth com encaixe firme para treinos e corridas.',
+  'fone-cancelamento': 'Headphone com cancelamento de ruído e almofadas macias.',
+  'fone-com-fio': 'Fone com fio e microfone, simples e prático.',
+  'cesto-organizador': 'Cesto trançado para organizar prateleiras e armários.',
+  'vela-aromatica': 'Vela de baunilha para deixar a casa mais acolhedora.',
+  'organizador-gavetas': 'Organizador de madeira para separar objetos nas gavetas.',
+  'caneca-ceramica': 'Caneca de cerâmica artesanal para café e chá.',
+  'luminaria-mesa': 'Luminária de mesa com luz suave e design delicado.',
+  'bolsa-tiracolo': 'Bolsa tiracolo compacta com alça ajustável.',
+  'carteira-couro': 'Carteira de couro com divisórias para cartões e notas.',
+  'lenco-seda': 'Lenço de seda macio para usar no pescoço ou na bolsa.',
+  'oculos-sol': 'Óculos de sol com lentes escuras e proteção UV.',
+  'estojo-fones': 'Estojo rígido para guardar fones e cabos sem enrolar.',
+  'creme-hidratante': 'Creme facial com hidratação leve para o dia a dia.',
+  'sabonete-artesanal': 'Kit de sabonetes artesanais com aromas variados.',
+  'escova-facial': 'Escova de silicone para limpeza facial profunda.',
+  'necessaire': 'Necessaire espaçosa para levar seus cosméticos em viagens.',
+  'jogo-tabuleiro': 'Jogo de tabuleiro estratégico para jogar com amigos e família.',
+  'quebra-cabeca': 'Quebra-cabeça de 500 peças com imagem colorida.',
+  'kit-aquarela': 'Kit de aquarela com cartelas de cores, pincéis e acessórios.',
+  'caderno-sketch': 'Caderno de desenho com folhas firmes para esboços.'
+};
+UNOA.produtos.forEach(function (p) { p.descricao = UNOA.descricoes[p.id] || p.nome; });
