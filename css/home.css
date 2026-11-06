@@ -1,3 +1,4 @@
+/* UNOA - Home */
 .hero{background:var(--bege);padding:56px 0 64px}
 .hero__grade{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
 .hero h1{font-size:44px;line-height:1.1;font-weight:800;letter-spacing:-.02em;max-width:460px}
@@ -17,9 +18,9 @@
 .banner-presentes p{color:var(--texto-suave);margin-bottom:16px}
 .banner-presentes .img-caixa{aspect-ratio:16/10;border-radius:var(--raio-lg)}
 .faixa-cupom{border-top:1px solid var(--borda);border-bottom:1px solid var(--borda);margin-top:24px}
-.faixa-cupom__linha{display:flex;gap:14px;align-items:center;justify-content:center;padding:18px 0;font-size:14px}
+.faixa-cupom__linha{display:flex;gap:14px;align-items:center;justify-content:center;padding:18px 0;font-size:14px;flex-wrap:wrap}
 .categorias{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.cat{display:flex;flex-direction:column;align-items:center;gap:12px;padding:22px 10px;border:1px solid var(--borda);border-radius:var(--raio);font-weight:600;font-size:13px;background:#fff}
+.cat{display:flex;flex-direction:column;align-items:center;gap:12px;padding:22px 10px;border:1px solid var(--borda);border-radius:var(--raio);font-weight:600;font-size:13px;background:#fff;text-align:center}
 .cat:hover{border-color:var(--roxo-medio)}
 .cat__icone{width:36px;height:36px;border-radius:10px;display:grid;place-items:center}
 .cat__icone svg{width:18px;height:18px}
@@ -43,3 +44,12 @@
 .conf span{color:var(--texto-suave)}
 .conf svg{width:34px;height:34px;padding:8px;border-radius:50%;background:var(--lilas);flex:none}
 @media (max-width:960px){.hero__grade,.banner-presentes,.duplo,.guia{grid-template-columns:1fr}.categorias{grid-template-columns:repeat(2,1fr)}.confianca__grade{grid-template-columns:1fr}.hero h1{font-size:34px}.hero__colagem{display:none}}
+
+.hero__colagem{position:relative;width:100%;max-width:520px;height:380px;margin-left:auto}
+.hero__colagem::before{content:"";position:absolute;inset:6% 2% 2% 8%;border-radius:50%;background:radial-gradient(circle at 40% 40%,var(--lilas) 0,var(--lilas-claro) 70%,transparent 72%);z-index:0}
+.hero__colagem .img-caixa{position:absolute;border:4px solid #fff;border-radius:var(--raio-lg);box-shadow:0 14px 32px rgba(45,36,56,.16);background:#fff;z-index:1}
+.hero__c1{left:2%;top:0;width:42%;height:66%}
+.hero__c2{right:0;top:12%;width:48%;height:52%}
+.hero__c3{left:24%;bottom:0;width:46%;height:42%;z-index:2}
+.hero__c1:hover,.hero__c2:hover,.hero__c3:hover{z-index:3}
+.rotulo-img{position:absolute;left:10px;bottom:10px;background:rgba(255,255,255,.94);color:var(--texto);font-size:10px;font-weight:700;letter-spacing:.02em;padding:4px 10px;border-radius:var(--raio-pill);box-shadow:var(--sombra);z-index:2}

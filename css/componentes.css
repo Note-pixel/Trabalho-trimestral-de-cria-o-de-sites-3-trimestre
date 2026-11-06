@@ -1,3 +1,4 @@
+/* UNOA - componentes compartilhados: faixa, header, menus, cards, rodapé */
 .faixa-topo{background:var(--roxo-escuro);color:#fff;text-align:center;font-size:12px;font-weight:500;padding:8px 16px}
 .header{background:#fff;border-bottom:1px solid var(--borda);position:relative;z-index:30}
 .header__linha{display:flex;align-items:center;gap:40px;height:72px}
@@ -7,7 +8,7 @@
 .acoes{display:flex;gap:26px;align-items:center}
 .acao{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:500;background:none;border:0;padding:0}
 .acao svg{width:18px;height:18px}
-.acao__badge{position:absolute;top:-6px;right:-4px;min-width:14px;height:14px;border-radius:7px;background:var(--desconto);color:var(--roxo-escuro);font-size:9px;font-weight:700;display:grid;place-items:center}
+.acao__badge{position:absolute;top:-6px;right:-4px;min-width:14px;height:14px;border-radius:7px;background:var(--desconto);color:var(--roxo-escuro);font-size:9px;font-weight:700;display:grid;place-items:center;font-style:normal}
 .nav{border-top:1px solid var(--borda)}
 .nav__linha{display:flex;align-items:center;justify-content:space-between;height:46px}
 .nav__lista{display:flex;gap:28px}
@@ -38,11 +39,17 @@
 .dropdown__cupom{background:var(--lilas-claro);border-radius:var(--raio-sm);padding:10px 12px;font-size:12px;margin-top:8px}
 .grade-produtos{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .card{background:#fff;border:1px solid var(--borda);border-radius:var(--raio);padding:12px;display:flex;flex-direction:column;gap:10px}
-.card__img{aspect-ratio:1/1}
-.card__fav{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;border:0;background:#fff;display:grid;place-items:center;box-shadow:var(--sombra)}
+.card__midia{position:relative}
+.card__img{display:block;aspect-ratio:1/1}
+.card__fav{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;border:0;background:#fff;display:grid;place-items:center;box-shadow:var(--sombra);z-index:2}
 .card__fav svg{width:15px;height:15px}
 .card__fav[aria-pressed="true"] svg{fill:var(--roxo-medio);stroke:var(--roxo-medio)}
+.card__acoes{position:absolute;left:8px;right:8px;bottom:8px;display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(6px);transition:opacity .18s,transform .18s;pointer-events:none;z-index:2}
+.card:hover .card__acoes,.card:focus-within .card__acoes{opacity:1;transform:none;pointer-events:auto}
+.card__acoes .btn{height:34px;font-size:12px}
+.card__acoes .btn--contorno{background:#fff}
 .card__nome{font-weight:600;font-size:13px}
+.card__nome a:hover{text-decoration:underline}
 .card__nota{font-size:11px;color:var(--texto-suave)}
 .card__nota b{color:var(--roxo-medio)}
 .card__preco{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -61,32 +68,24 @@
 .rodape__pag{display:flex;gap:8px}
 .rodape__pag span{border:1px solid rgba(255,255,255,.6);border-radius:var(--raio-pill);padding:3px 12px;font-weight:600}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--roxo-escuro);color:#fff;padding:10px 18px;border-radius:var(--raio-sm);font-size:13px;z-index:99}
+.avatar{width:24px;height:24px;border-radius:50%;background:var(--roxo-medio);color:#fff;font-style:normal;font-size:12px;font-weight:700;display:grid;place-items:center}
+.topo-seguro{display:flex;gap:16px;align-items:center;font-size:12px;font-weight:600}
+.topo-seguro a{text-decoration:underline}
+.rodape-min{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:28px 32px;font-size:12px;color:var(--texto-suave)}
+.rodape-min a{text-decoration:underline}
+.card__entrega{font-size:11px;color:var(--texto-suave)}
+.tag-gratis{background:#E3F1EA;color:var(--verde);font-weight:700;border-radius:var(--raio-pill);padding:1px 8px}
+.tag-total{align-self:flex-start;background:var(--lilas);border-radius:var(--raio-sm);padding:3px 8px;font-size:11px;font-weight:600}
+.card__cmp{display:flex;gap:6px;align-items:center;font-size:11px;color:var(--texto-suave)}
+.pag{display:flex;gap:6px;justify-content:center;margin:24px 0}
+.barra-cmp:empty{display:none}
+.barra-cmp{position:fixed;left:0;right:0;bottom:0;background:var(--roxo-escuro);color:#fff;display:flex;justify-content:center;align-items:center;gap:16px;padding:12px;z-index:50;font-size:13px}
+.barra-cmp .btn{background:#fff;color:var(--roxo-escuro);border-color:#fff;height:34px}
+.progresso{height:6px;border-radius:3px;background:var(--lilas);margin:10px 0;overflow:hidden}
+.progresso i{display:block;height:100%;background:var(--roxo-medio)}
+.pix-box{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.pix-box .qr{width:120px;height:120px;border:2px dashed var(--borda);border-radius:var(--raio);display:grid;place-items:center;font-size:12px;color:var(--texto-suave);background:repeating-conic-gradient(#EFE9E1 0 25%,#fff 0 50%) 0 0/16px 16px}
+code{display:block;background:var(--lilas-claro);border-radius:var(--raio-sm);padding:10px;font-size:11px;word-break:break-all;margin:8px 0}
+@media (hover:none){.card__acoes{opacity:1;transform:none;pointer-events:auto;position:static;margin-top:8px}}
 @media (max-width:960px){.grade-produtos{grid-template-columns:repeat(2,1fr)}.rodape__grade{grid-template-columns:1fr 1fr}.nav__lista{overflow-x:auto;gap:18px}.header__linha{gap:16px}.mega__grade{grid-template-columns:1fr}.acao span{display:none}}
-
-.card__midia {
-  position: relative;
-}
-
-.card__acoes {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  width: 100%;
-  padding: 15px;
-  box-sizing: border-box;
-}
-
-.card__acoes .btn {
-  flex: 1;
-  min-width: 0;
-  padding: 10px 6px;
-  font-size: 12px;
-  white-space: normal;
-  line-height: 1.3;
-}
-
-@media (max-width: 480px) {
-  .card__acoes {
-    flex-direction: column;
-  }
-}
+@media (max-width:720px){.header__linha{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:12px}.busca-topo{order:3;flex-basis:100%}.acoes{gap:16px}.logo{font-size:20px}.hero h1{font-size:30px}.grade-produtos{grid-template-columns:1fr 1fr;gap:12px}.catalogo .grade-produtos{grid-template-columns:1fr 1fr}.dropdown{right:8px;left:8px;width:auto}.mega__grade{padding:16px}}

@@ -1,3 +1,4 @@
+/* UNOA - páginas de catálogo: busca, categoria, ofertas, presentes */
 .crumbs{font-size:12px;color:var(--texto-suave);padding:18px 0 4px}
 .crumbs a{text-decoration:underline;text-underline-offset:2px}
 .cat-topo{background:var(--creme);padding-bottom:8px}
@@ -19,7 +20,8 @@
 .catalogo .grade-produtos{grid-template-columns:repeat(3,1fr)}
 .grade-produtos.lista{grid-template-columns:1fr}
 .grade-produtos.lista .card{flex-direction:row;align-items:center;gap:16px}
-.grade-produtos.lista .card__img{width:120px;flex:none}
+.grade-produtos.lista .card__midia{width:120px;flex:none}
+.grade-produtos.lista .card__acoes{display:none}
 .grade-produtos.lista .card__nome{flex:1}
 .vazio{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;padding:48px 0;align-items:start}
 .vazio h1{font-size:30px;font-weight:800;margin:12px 0}

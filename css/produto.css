@@ -6,14 +6,14 @@
 .prod__thumbs{display:flex;flex-direction:column;gap:10px}
 .prod__thumbs .img-caixa{width:70px;height:70px;border-radius:8px;border:2px solid transparent;padding:0;cursor:pointer}
 .prod__thumbs .img-caixa[aria-current="true"]{border-color:var(--roxo-escuro)}
-.prod__principal{aspect-ratio:1/1;border-radius:var(--raio-lg)}
+.prod__principal{display:block;aspect-ratio:1/1;border-radius:var(--raio-lg)}
 .painel{background:#fff;border:1px solid var(--borda);border-radius:var(--raio);padding:20px;display:flex;flex-direction:column;gap:14px}
 .painel h2{font-size:20px;font-weight:700}
 .preco-grande{font-size:28px;font-weight:800}
 .preco-grande s{font-size:12px;color:var(--texto-suave);font-weight:500;margin-left:6px}
 .aviso{background:var(--lilas-claro);border-radius:var(--raio-sm);padding:10px 12px;font-size:12px}
 .cores{display:flex;gap:8px}
-.cores button{width:24px;height:24px;border-radius:50%;border:2px solid var(--borda)}
+.cores button{width:24px;height:24px;border-radius:50%;border:2px solid var(--borda);cursor:pointer}
 .cores button[aria-pressed="true"]{border-color:var(--roxo-escuro)}
 .qtd{display:inline-flex;align-items:center;border:1px solid var(--borda);border-radius:var(--raio-sm);width:max-content}
 .qtd button{width:32px;height:32px;border:0;background:none;font-size:16px}
@@ -43,13 +43,11 @@
 .check{width:60px;height:60px;border-radius:50%;background:var(--lilas);display:grid;place-items:center;font-size:26px;margin-bottom:12px}
 .comp{overflow-x:auto;background:#fff;border:1px solid var(--borda);border-radius:var(--raio)}
 .comp .tabela th{width:140px;color:var(--texto-suave);font-size:12px}
-@media (max-width:960px){.prod,.duas,.resumo-nota{grid-template-columns:1fr}.prod__thumbs{flex-direction:row;order:2}}
 .chips-linha{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
 .chip{cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--roxo-escuro);color:#fff;border-color:var(--roxo-escuro)}
 #btn-fav .on,#btn-fav[aria-pressed="true"] .off{display:none}
 #btn-fav[aria-pressed="true"] .on{display:inline}
-.prod__thumbs .img-caixa{cursor:pointer;padding:0}
-.cores button{cursor:pointer}
 .util{margin-top:8px}.util button{background:none;border:1px solid var(--borda);border-radius:var(--raio-pill);padding:3px 12px;font-size:11px}
 #comentarios{margin-top:32px}
+@media (max-width:960px){.prod,.duas,.resumo-nota{grid-template-columns:1fr}.prod__thumbs{flex-direction:row;order:2}}

@@ -1,8 +1,10 @@
+/* UNOA - carrinho, favoritos, checkout, conta (usa também produto.css) */
 .linha-item{display:grid;grid-template-columns:90px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--borda)}
 .linha-item:last-child{border:0}
 .linha-item .img-caixa{width:90px;height:90px}
-.acoes-item{display:flex;gap:14px;align-items:center;margin-top:8px;font-size:12px}
+.acoes-item{display:flex;gap:14px;align-items:center;margin-top:8px;font-size:12px;flex-wrap:wrap}
 .acoes-item button{background:none;border:0;text-decoration:underline;font-size:12px;padding:0}
+.acoes-item .qtd button{text-decoration:none;font-size:16px;padding:0}
 .resumo{background:var(--lilas);border-radius:var(--raio);padding:20px;display:flex;flex-direction:column;gap:10px;font-size:13px}
 .resumo .lin{display:flex;justify-content:space-between;gap:8px}
 .resumo .total{font-size:20px;font-weight:800;border-top:1px solid rgba(45,36,56,.15);padding-top:10px}
@@ -31,7 +33,7 @@
 .selo{background:var(--lilas);border-radius:var(--raio-pill);padding:2px 10px;font-size:11px;font-weight:700}
 .com-lateral{display:grid;grid-template-columns:230px 1fr;gap:24px;margin-top:16px;align-items:start}
 .lateral{background:#fff;border:1px solid var(--borda);border-radius:var(--raio);padding:14px;display:flex;flex-direction:column;gap:2px}
-.lateral a{padding:10px;border-radius:8px;font-size:13px}
+.lateral a{display:flex;gap:8px;align-items:center;padding:10px;border-radius:8px;font-size:13px}
 .lateral a:hover{background:var(--lilas-claro)}
 .lateral a[aria-current="page"]{background:var(--lilas);font-weight:700}
 .lateral__user{display:flex;gap:10px;align-items:center;padding:6px 10px 14px;border-bottom:1px solid var(--borda);margin-bottom:8px}
